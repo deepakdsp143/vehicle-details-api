@@ -10,7 +10,7 @@ app.get("/", async (req, res) => {
   if (!vehicleNumber) {
     return res.json({
       success: false,
-      message: "Please provide vehicle number using ?vehicle=TN01AB1234"
+      message: "Please provide vehicle number like ?vehicle=TN01AB1234"
     });
   }
 
@@ -20,16 +20,16 @@ app.get("/", async (req, res) => {
       success: true,
       data: data
     });
-  } catch (err) {
+  } catch (error) {
     res.json({
       success: false,
-      error: err.toString()
+      error: error.toString()
     });
   }
 });
 
-// IMPORTANT: Cloud-safe port
+// Cloud-safe port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log("Server running on port " + PORT);
 });
